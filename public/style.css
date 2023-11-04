@@ -1,0 +1,103 @@
+:root{
+    --color1:#c0a0c3;
+    --color2:#f1889b;
+    --color3:#ffcdd4;
+    --color4:#7A2150; 
+    --negro: #000000;
+    --blanco: #FFFFFF;
+
+    --fuentePrincipal: 'Lexend-Deca',sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    position: relative;
+    background-image: url('assets/SERA_IMAGEN_FONDO_LOGIN.png');
+    background-size: cover;
+    background-color: var(--negro);
+    background-repeat: no-repeat;
+}
+
+
+header{
+    display: flex;
+    background-color:var(--color4);
+    width: 100%;
+    height: 10vh;
+    margin: 0;
+    padding: 1vh;
+    justify-content: space-between;
+    opacity: 0.8;
+}
+
+header img{
+    height: 80%;
+    margin:0.5% 2%;
+}
+
+h1{
+    text-align: center;
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+}
+
+#container-user {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px; /* Agrega espacio entre los elementos */
+    place-items: center;
+    height: 50vh;
+}
+
+.user-boton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    margin: 5px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.boton-imagen,
+.boton-imagen-hover {
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
+    max-height: 100%; /* Asegura que la imagen no sea más alta que el contenedor */
+    transition: opacity 0.2s; /* Agrega una transición suave */
+}
+
+.boton-imagen {
+    opacity: 1; /* Inicialmente, la imagen original es visible */
+}
+
+.boton-imagen-hover {
+    opacity: 0; /* Inicialmente, la imagen de hover no es visible */
+}
+
+.user-boton:hover .boton-imagen {
+    opacity: 0; /* Oculta la imagen original en el hover */
+}
+
+.user-boton:hover .boton-imagen-hover {
+    opacity: 1; /* Muestra la imagen de hover en el hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
