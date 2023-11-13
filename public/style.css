@@ -9,6 +9,7 @@
     --fuentePrincipal: 'Lexend-Deca',sans-serif;
 }
 
+/* Variables globales */
 html, body {
     height: 100%;
     margin: 0;
@@ -19,6 +20,7 @@ html, body {
     background-size: cover;
     background-color: var(--negro);
     background-repeat: no-repeat;
+    font-family: var(--fuentePrincipal);
 }
 
 
@@ -48,7 +50,7 @@ h1{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 10px; /* Agrega espacio entre los elementos */
+    gap: 3%; /* Agrega espacio entre los elementos */
     place-items: center;
     height: 50vh;
 }
@@ -58,36 +60,157 @@ h1{
     align-items: center;
     justify-content: center;
     height: 100%;
-    width: 100%;
+    width: 23%;
     margin: 5px;
-    padding: 0;
     overflow: hidden;
     position: relative;
 }
 
 .boton-imagen,
 .boton-imagen-hover {
-    max-width: 100%; /* Asegura que la imagen no sea más ancha que el contenedor */
-    max-height: 100%; /* Asegura que la imagen no sea más alta que el contenedor */
-    transition: opacity 0.2s; /* Agrega una transición suave */
+    max-width: 100%;
+    max-height: 100%;
 }
 
-.boton-imagen {
-    opacity: 1; /* Inicialmente, la imagen original es visible */
-}
-
-.boton-imagen-hover {
-    opacity: 0; /* Inicialmente, la imagen de hover no es visible */
+.user-boton .boton-imagen-hover {
+    display: none; /* Inicialmente, oculta la imagen de hover */
 }
 
 .user-boton:hover .boton-imagen {
-    opacity: 0; /* Oculta la imagen original en el hover */
+    display: none; /* Oculta la imagen original en el hover */
 }
 
 .user-boton:hover .boton-imagen-hover {
-    opacity: 1; /* Muestra la imagen de hover en el hover */
+    display: block; /* Muestra la imagen de hover en el hover */
 }
 
+/*Login*/
+
+.container {
+    width: 25%;
+    margin: 0 auto;
+    background-color: var(--blanco);
+    border-radius: 10px;
+    padding: 2.5%;
+    margin-top: 5%;
+    
+  }
+  .login-title{
+    color: var(--color4);
+  }
+ 
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    color: var(--color4);
+    font-weight: bold; 
+  }
+  
+  input[type="text"],
+  input[type="password"] {
+    width:95%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color:var(--blanco);
+    border: 1px solid var(--negro);
+  }
+  
+  button[type="submit"] {
+    
+    background-color:var(--color2);
+    color:var(--blanco);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 0 35%;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: var(--color4);
+  }
+
+  .flex-fields{
+    display: flex;
+    margin-bottom: 2%;
+  }
+
+  /* Iconos */
+  .container-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25%; /* Ajusta la altura según tus necesidades */
+  }
+
+  .icon {
+    max-width: 40%;
+    max-height: 40%;
+  }
+  
+  .little-icon{
+    width: 6%;
+    margin-right: 2%;
+  }
+
+
+/*Interfaz Datos*/
+
+nav {
+  display: grid;
+  justify-content: space-between;
+  margin-bottom: 10%;
+  grid-template-columns: 1fr;
+  background-color: var(--color1);
+}
+
+a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+a:hover {
+  color: #0099ff;
+}
+
+main {
+  display:flex;
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+.datos-personales {
+  background-color: var(--blanco);
+}
+
+.datos-academicos {
+  background-color: #f0f0f0;
+}
+
+.tutoria-asignada {
+  background-color: #d3d3d3;
+}
 
 
 
