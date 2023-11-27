@@ -9,4 +9,10 @@ urlpatterns =[
     path('redirection/', redirection_view, name='redirection_view'),
     path('estudiante',views.estudiante, name='estudiante'),
     path('psicopedagogo',views.psicopedagogo, name='psico'),
+    path('create-alumno', views.create_alumno, name='create_alumno'),
+    path('editar-alumno',views.editar_alumno, name='editar_alumno'),
+    path('create-historial',views.create_historial, name='create_historial'),
+    path('editar-historial',views.editar_historial, name='editar_historial'),
+    path('create-notas',views.create_notas, name='create_notas'),
+    path('estudiante/notas',views.estudiante_notas, name='estudiante_notas'),
 ]

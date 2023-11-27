@@ -1,0 +1,71 @@
+body {
+    background-color: rgb(236, 206, 241);
+    font-family: Verdana, Roboto;
+    text-align: center;
+    font-size: 2em;    
+}
+
+h1{
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 150%;
+}
+
+h1,h2 {
+    color: rgb(202, 130, 238);
+}
+
+table {
+    float: left;
+}
+th {
+    color: rgb(202, 130, 238);
+}
+.inicio {
+    text-align: left;
+    font-size:80%;
+}
+
+.inicio p{
+    color:rgb(202, 130, 238);
+}
+.inicio span{
+    color:black;
+}
+.Extras p,span{ 
+    color:black;
+    /*font-size: 50%;*/
+}
+#amb {
+    font-weight: normal;
+    /*font-size:medium;*/
+    /* font-size: 50%;*/
+}
+
+.grafico {
+    float: right;
+    margin-left: 20px;
+}
+
+.banner {
+    
+    
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    float: center;
+    font-size: 80%;
+}
+.Tabla1 {
+    float: left;
+    margin-right: 20px; 
+    text-size-adjust: 100%;
+}
+
+#info {
+    float: left;
+}

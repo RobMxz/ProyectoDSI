@@ -1,0 +1,8 @@
+{% extends 'main/base.html' %}
+{% block title %} Editar Alumno {% endblock %}
+{% block content%}
+<form method="post">
+{% csrf_token %}{{form}}
+<button type="submit" class="btn btn-success">Guardar cambios</button>
+</form>
+{% endblock %}

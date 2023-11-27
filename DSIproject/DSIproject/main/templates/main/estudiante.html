@@ -1,5 +1,33 @@
 {% extends 'main/base.html' %} 
 {% block title %} Estudiante{% endblock %}
 {% block content %}
-<h1>Estudiante:  {{user.username}}</h1>
+<div>
+    <h2>Información Personal</h2>
+    {% for alumno in alumnos %}
+    <h5>DNI: </h5><span>{{alumno.documento_identidad}}</span>
+    <h5>Nro. Telf: </h5><span>{{alumno.telefono}}</span>
+    <h5>Alumno: </h5><span>{{alumno.nombre}} {{alumno.apellidos}}</span>
+    <h5>Correo: </h5><span>{{alumno.nombre}}</span>
+    <h5>Direccion: </h5><span>{{alumno.direccion}}</span>
+    <h5>Fecha de nacimiento: </h5><span>{{alumno.correo_electronico}}</span>
+    {% empty %}
+    <p>Ningun alumno :(</p>
+    {%endfor%}
+</div>
+
+<div>
+    <h2>Información Academica</h2>
+    {% for hist in hists %}
+    <h5>Grado academico: </h5><span>{{hist.grado_academico}}</span>
+    <h5>Num de repitencias: </h5><span>{{hist.numero_repitencias}}</span>
+    <h5>Tiempo de estudio: </h5><span>{{hist.tiempo_estudio}}</span>
+    <h5>Preferencia profesional: </h5><span>{{hist.preferencia_profesional}}</span>
+    {% empty %}
+    <p>Ningun historial academico:(</p>
+    {%endfor%}
+</div>
+
+
+
+
 {% endblock %}
