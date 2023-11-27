@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi perfil</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="body2">
+  <header> 
+    <img src="assets/SERA_LOGO_BLANCO.png" alt="imagen-logo"> 
+    <img src="assets/SERA_TITULO_BLANCO.png" alt="imagen-logo"> 
+  </header>
+  <div class="display-flex">
+    <nav>
+        <img src="assets/ICONO_GENERAL_PERFIL.png" alt="foto-persona">
+        <p>Bienvenido nombre usuario</p>
+        <a href="#" class="class-option">Mis datos</a>
+        <a href="interfazModificarDatos.html" class="class-option">Gestionar expedientes</a>
+        <p class="espaciado">   </p>
+      </nav>
+    <main>
+        <h1 class="color-title">Modificar expediente</h1>
+        <div class="container-dia-cita">
+            <div class="card2">
+                <h1>DNI</h1>
+                <div class="container-modify">
+                    <div class="cuadro-informacion2"></div>
+                    <input type="text" id="dni" name="dni" required>
+                </div>
+
+                <h1>Nombre</h1>
+                <div class="container-modify">
+                    <div class="cuadro-informacion2"></div>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <h1>Apellidos</h1>
+                <div class="container-modify">
+                    <div class="cuadro-informacion2"></div>
+                    <input type="text" id="apellidos" name="apellidos" required>
+                </div>
+                
+                <h1>Telefono</h1>
+                <div class="container-modify">
+                    <div class="cuadro-informacion2"></div>
+                    <input type="text" id="telefono" name="telefono" required>
+                </div>
+                
+                <h1>Correo</h1>
+                <div class="container-modify">
+                    <div class="cuadro-informacion2"></div>
+                    <input type="text" id="correo" name="correo" required>
+                </div>
+                
+                <div class="container-btn">
+                  <div class="guardar-btn-container"><button class="guardar-btn"><b>Volver</b></button></div>
+                  <div class="guardar-btn-container"><button class="guardar-btn"><b>Guardar</b></button></div>
+                </div>         
+            </div>
+        </div>
+    </main>
+  </div>
+</body>
+</html>
