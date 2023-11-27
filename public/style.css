@@ -11,6 +11,12 @@
     --verde-claro:#E7FFCC;
     --azul-claro:#CFE8FF;
     --azul-oscuro:#2D90EB;
+    --rosa-palido:#C170A1;
+    --gris: #F1F1F1;
+    --lavanda: #E7E6FB;
+    --rosa-bebe: #F9E5EA;
+    --panache: #FBEDD9;
+    --cian-palido: #CFF6FF;
 
     --fuentePrincipal: 'Lexend-Deca',sans-serif;
 }
@@ -27,6 +33,11 @@ html, body {
   background-color: var(--negro);
   background-repeat: no-repeat;
   font-family: var(--fuentePrincipal);
+}
+
+main {
+  margin: 0 auto; /* Establecerá márgenes automáticos, centrando el main */
+  max-width: 70%; /* O ajusta el valor según tus necesidades */
 }
 
 .body2{
@@ -289,3 +300,141 @@ p{
   display: flex;
   flex-direction: column;
 }
+
+/* Tabla notas alumno */
+
+
+.container1 {
+  border: solid 1px var();
+  margin: 0 auto; 
+  max-width: 80%; 
+  padding: 1%; 
+}
+
+table {
+  color: var(--negro);
+  font-size: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+thead {
+  background-color: var(--rosa-palido); 
+  
+}
+
+thead th {
+  padding: 2%;
+}
+
+thead tr{
+  background-color: var(--rosa-palido); 
+  color: var(--blanco);
+}
+
+th, td {
+  padding: 1.5%;
+  border-bottom: solid 1px rgba(255, 255, 255, 0.2);
+}
+
+tbody tr {
+  background-color: var(--gris);
+  cursor: pointer;
+}
+
+.color-title{
+  color: var(--negro);
+}
+
+/*Reporte alumno-----------------------------------------------*/
+
+.card { 
+  width: 400px;
+  height: 300px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid var(--blanco);
+  background-color: var(--blanco);
+}
+
+
+.row { 
+  display: flex; 
+  flex-direction: column; 
+  grid-column: 1;
+  justify-content: center;
+  align-items: center;
+}
+.row2 { 
+  display: flex; 
+  flex-direction: column; 
+  grid-column: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.square { 
+  width: 100px;
+  margin-bottom: 7.5%;
+  border-radius: 10%; 
+  text-align: center;
+  padding: 4%;
+}
+
+.span1{
+  font-size: 95%; 
+}
+
+.span2{
+  font-size: 225%; 
+}
+
+.logo-reporte{ 
+  width: 50px;  
+}
+
+span { 
+  color: var(--negro);  
+}
+
+.lavanda { 
+  background-color: var(--lavanda); /* Color de fondo del cuadrado morado */ 
+}
+
+.rosa-bebe { 
+  background-color: var(--rosa-bebe); /* Color de fondo del cuadrado rosado */ 
+}
+
+.verde-claro { 
+  background-color: var(--verde-claro); /* Color de fondo del cuadrado verde */ 
+}
+
+.panache{
+  background-color: var(--panache);
+}
+
+.cian-palido{
+  background-color: var(--cian-palido);
+}
+
+.grid{
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  grid-template-columns: repeat(2,1fr);
+}
+.cuadro{
+  background-color: var(--gris);
+  
+}
+
+.cuadro-rendimiento {
+  display: flex;
+}
+
+.cuadro-rendimiento .square {
+  margin-right: 7.5%;
+}
+
+
