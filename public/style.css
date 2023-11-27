@@ -62,7 +62,6 @@ header{
     margin: 0;
     padding: 1vh;
     justify-content: space-between;
-    opacity: 0.8;
 }
 
 header img{
@@ -436,5 +435,344 @@ span {
 .cuadro-rendimiento .square {
   margin-right: 7.5%;
 }
+
+/*Registro Calificacion Docente*/
+
+#tabla-registro-notas{
+  display: flex;
+  width: 100%;
+}
+
+#informacion-profesor-curso h1 {
+  display: flex;
+  font-size: 120%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--negro);
+}
+
+.datos-registro-calificacion {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datos-muestra {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cuadro-informacion {
+  background-color: var(--gris); 
+  width: 10rem; 
+  height: 3rem; 
+  border-radius: 20%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+
+.guardar-btn {
+  background-color:var(--color4);
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  margin: 4px 2px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+  border-radius: 10%;
+  margin-left: auto;
+}
+
+.guardar-btn-container {
+  margin-top: 3%;
+  display: flex;
+}
+
+.guardar-btn:hover {
+  background-color: var(--rosado-oscuro);
+
+}
+
+
+
+
+
+
+
+/* Reportes docente*/
+#container-ingreso-datos{
+  display: flex;
+  grid-template-columns: repeat(2,1fr);
+  padding: 5%;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  gap: 20%;
+}
+.ingreso-datos-reporte{
+  color: var(--negro);
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 20%;
+}
+.mostrar-dato{
+  color: var(--negro);
+  grid-column: 1;
+  font-size: 700;
+}
+.columna1{
+  grid-column: 1;
+}
+.columna2{
+  grid-column: 2;
+}
+#container-resultados{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 10%;
+}
+#container-estadisticas{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+#container-ingreso-datos,
+#container-resultados,
+#container-estadisticas {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin: 6% 0;
+}
+
+.ingreso-datos-reporte.columna1 form {
+  margin: auto 0;
+}
+.ingreso-datos-reporte.columna2 form {
+  margin: auto 0; 
+}
+form select{
+  background-color: var(--gris);
+  font-size: 20px;
+  padding: 0 10%;
+}
+.square-docente{
+  width: 100px;
+  margin-bottom: 7.5%;
+  border-radius: 10%; 
+  text-align: center;
+  padding: 15% 30%;
+}
+.lavanda-letter{
+  color: var(--azul-oscuro);
+}
+.pink-letter{
+  color: var(--rosa-palido);
+}
+.green-letter{
+  color: var(--verde-oscuro);
+}
+.panache-letter{
+  color: var(--color2);
+}
+
+/*Dia de citas*/
+.container-dia-cita h1 {
+  display: flex;
+  font-size: 120%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--negro);
+}
+
+.cuadro-informacion2 {
+  background-color: var(--gris); 
+  width: 25rem; 
+  height: 3rem; 
+  border-radius: 20%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Registrar observaciones - Psicopedagogo */
+.background-search{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--gris);
+  border-radius: 3%;
+  padding: 4% 0;
+}
+.resultado-b{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+  place-items: center;
+  justify-content: center;
+  
+}
+.big-icon {
+  max-width: 70%;
+  max-height: 70%;
+}
+.start-left{
+  text-align: left;
+}
+
+.search-icon{
+  width: 10%;
+  height: 5%;
+}
+.centrar-button {
+  display: block;
+  margin: 2% auto 1% auto;
+  padding: 2%;
+}
+
+.datos-muestra-observacion {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button{
+  background-color: var(--color4);
+  width: 20%;
+  height: 100%;
+  border-radius: 20%;
+  margin-left: 5%;
+  border: none;
+}
+
+.search-button h1{
+  font-size: 150%;
+}
+
+.cuadro-informacion-observacion {
+  background-color: var(--gris); 
+  width: 50rem; 
+  height: 3rem; 
+  border-radius: 20%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/*Registrar observaciones rellenar*/
+
+.background-search{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: center;
+  background-color: var(--gris);
+  border-radius: 3%;
+  padding: 4% 0;
+  
+}
+.resultado-b{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  place-items: center;
+  justify-content: center;
+  
+}
+.big-icon {
+  max-width: 70%;
+  max-height: 70%;
+}
+.start-left{
+  text-align: left;
+}
+
+.search-icon{
+  max-width: 10%;
+  max-height: 10%;
+  display: grid;
+}
+.centrar-button {
+  font-size: 150%;
+  display: block;
+  margin: 2% auto 1% auto;
+  padding: 2%;
+}
+.search-button{
+  background-color: var(--color4);
+  display: flex; /* condicionable*/
+  border-radius: 15%;
+  margin: 4%;
+  border: none;
+  justify-content: center;
+
+  width: fit-content; /* Se ajustará al tamaño contenido (de la imagen) */
+  height: fit-content; /* Se ajustará al tamaño contenido (de la imagen) */
+  
+}
+
+.datos-muestra {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.cuadro-informacion-observacion {
+  background-color: var(--gris); 
+  width: 50rem; 
+  height: 3rem; 
+  border-radius: 20%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.observation-generic-data{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  place-items: center;
+  justify-content: center;
+  margin-right: 4%;
+}
+.margin-left{
+  margin-left: 5%;
+}
+.edit-select{
+  background-color: var(--blanco);
+}
+
+#descripcion-input{
+  background-color: var(--blanco);
+  border: none;
+  width: 70%;
+  margin-left: 5%;
+}
+
+
+
+
 
 
