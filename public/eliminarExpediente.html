@@ -39,14 +39,20 @@
             </div>
     </main>
     <dialog id="fallido">
-        <h3>Holaaasasas</h3>
-        <div id="notificacion" class="notificacion"> 
-            <div class=“notificacion-titulo”>Eliminación de expediente</div> 
-            <div class=“notificacion-mensaje”>Fallida</div> 
-            <div class=“notificacion-boton”> 
-                <button onclick="cerrarNotificacion()">Aceptar</button> 
-            </div> 
+        <div class="dialog-container">
+          <h1 class="h1-dialog">Registro de expediente</h1>
+          <h2 class="h2-dialog">Fallido</h2>
+          <img class="img-dialog" src="assets/SERA_ICONO_FALLIDO.png" alt="icono fallido">
+          <button class="btn-dialog-fail" onclick="cerrarNotificacion()"><strong>Aceptar</strong></button>
         </div>
+    </dialog>
+    <dialog id="exitoso">
+      <div class="dialog-container">
+        <h1 class="h1-dialog">Registro de expediente</h1>
+        <h2 class="h2-dialog">Exitoso</h2>
+        <img class="img-dialog" src="assets/SERA_ICONO_EXITOSO.png" alt="icono exitoso">
+        <button class="btn-dialog-success" onclick="cerrarNotificacion()"><strong>Aceptar</strong></button>
+      </div>
     </dialog>
   </div>
 </body>
