@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi perfil</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js"></script> 
+</head>
+<body class="body2">
+  <header> 
+    <img src="assets/SERA_LOGO_BLANCO.png" alt="imagen-logo"> 
+    <img src="assets/SERA_TITULO_BLANCO.png" alt="imagen-logo"> 
+  </header>
+  <div class="display-flex">
+    <nav>
+      <img src="assets/ICONO_GENERAL_PERFIL.png" alt="foto-persona">
+      <p>Bienvenido nombre usuario</p>
+      <a href="#" class="class-option">Mis datos</a>
+      <a href="interfazModificarDatos.html" class="class-option">Modificar datos</a>
+      <a href="misNotasAlumno.html" class="class-option">Registrar observaciones</a>
+      <a href="#" class="class-option">Calendario de citas</a>
+      <p class="espaciado">   </p>
+    </nav>
+    <main>
+      <h1 class="color-title">Calendario de citas</h1>
+      <div id="calendar"></div>
+
+      <script>
+          var calendarEl = document.getElementById('calendar');
+          var calendar = new FullCalendar.Calendar(calendarEl, {
+              initialView: 'dayGridMonth',
+              events: [
+                  { title: 'Reservado', start: '2022-04-01', end: '2022-04-03' },
+                  { title: 'Reservado', start: '2022-04-06', end: '2022-04-07' },
+                  { title: 'Reservado', start: '2022-04-11', end: '2022-04-13' },
+                  { title: 'Reservado', start: '2022-04-18', end: '2022-04-19' },
+                  { title: 'Reservado', start: '2022-04-23', end: '2022-04-25' },
+              ],
+              eventColor: 'red',
+              dayMaxEvents: true,
+          });
+          calendar.render();
+      </script>
+    </main>
+  </div>
+</body>
+</html>
