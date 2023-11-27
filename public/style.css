@@ -74,15 +74,36 @@ h1{
     font-family: var(--fuentePrincipal);
     color: var(--blanco);
 }
+.text-size{
+  font-size: 1200;
+}
 
 #container-user {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 3%; /* Agrega espacio entre los elementos */
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2,1fr);
     place-items: center;
-    height: 50vh;
+    justify-content: center;
+    align-items: start;
 }
+
+#container-user a{
+  width: 80%;
+  height: 80%;
+}
+
+#docente, #psicopedagogo{
+  display: flex;
+  justify-content: flex-end;
+  grid-column: 2;
+}
+
+#estudiante, #administrador{
+  display: flex;
+  justify-content: flex-start;
+  grid-column: 3;
+}
+
 
 .user-boton {
     display: flex;
@@ -772,6 +793,135 @@ form select{
 }
 
 
+/*Gestionar expediente*/
+
+#container-user-administrador{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(2,1fr);
+  place-items: center;
+  justify-content: center;
+}
+
+#container-user-administrador a{
+  width: 80%;
+  height: 80%;
+}
+
+
+/*Registrar expediente*/
+
+.container-btn{
+  display: flex;
+  justify-content: flex-end;
+  gap: 4%;
+}
+
+/* Modificar expediente*/
+.container-modify{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
+
+.cuadro-informacion2 {
+  background-color: var(--gris); 
+  width: 20rem; 
+  height: 3rem; 
+  border-radius: 20%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.card2{
+  width:120%;
+}
+
+.card2 h1{
+  display:flex;
+  align-items: flex-start;
+}
+
+/*Buscar Expediente*/
+
+.cuadro-informacion3 {
+  background-color: var(--gris); 
+  width: 35rem; 
+  height: 20rem; 
+  margin-top: 5%;
+  margin-left: 2%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-button2{
+  background-color: var(--color4);
+  width: 80%;
+  height: 100%;
+  border-radius: 20%;
+  margin-left: 5%;
+  border: none;
+  display: flex;
+  place-items: center;
+  justify-content: center;
+}
+
+.search-button2 h1{
+  font-size: 150%;
+  color: var(--blanco);
+}
+.container-search{
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+}
+
+/* Ventana emergente*/
+.notificacion { 
+  width: 300px; 
+  height: 150px; 
+  background-color: white; 
+  border-radius: 10px; 
+  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
+  position: fixed; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  display: none; }
+
+.notificacion-titulo { 
+  font-size: 20px; 
+  font-weight: bold; 
+  color: black; 
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.notificacion-mensaje { 
+  font-size: 16px; 
+  color: red; 
+  text-align: center; 
+  margin-top: 10px; 
+}
+
+.notificacion-boton { 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  margin-top: 20px; 
+}
+
+.notificacion-boton button { 
+  width: 100px; 
+  height: 40px; 
+  background-color: red; 
+  border: none; 
+  border-radius: 5px; 
+  color: white; 
+  cursor: pointer; }
 
 
 
