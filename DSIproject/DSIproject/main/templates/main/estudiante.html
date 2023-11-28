@@ -1,33 +1,84 @@
-{% extends 'main/base.html' %} 
-{% block title %} Estudiante{% endblock %}
+{% extends 'main/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
 {% block content %}
-<div>
-    <h2>Información Personal</h2>
-    {% for alumno in alumnos %}
-    <h5>DNI: </h5><span>{{alumno.documento_identidad}}</span>
-    <h5>Nro. Telf: </h5><span>{{alumno.telefono}}</span>
-    <h5>Alumno: </h5><span>{{alumno.nombre}} {{alumno.apellidos}}</span>
-    <h5>Correo: </h5><span>{{alumno.nombre}}</span>
-    <h5>Direccion: </h5><span>{{alumno.direccion}}</span>
-    <h5>Fecha de nacimiento: </h5><span>{{alumno.correo_electronico}}</span>
-    {% empty %}
-    <p>Ningun alumno :(</p>
-    {%endfor%}
-</div>
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="body2">
+    <header> 
+      <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+      <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
 
-<div>
-    <h2>Información Academica</h2>
-    {% for hist in hists %}
-    <h5>Grado academico: </h5><span>{{hist.grado_academico}}</span>
-    <h5>Num de repitencias: </h5><span>{{hist.numero_repitencias}}</span>
-    <h5>Tiempo de estudio: </h5><span>{{hist.tiempo_estudio}}</span>
-    <h5>Preferencia profesional: </h5><span>{{hist.preferencia_profesional}}</span>
-    {% empty %}
-    <p>Ningun historial academico:(</p>
-    {%endfor%}
-</div>
+    <div class="display-flex">
+      <nav>
+        <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+        {% for alumno in alumnos %}
+            <p>Bienvenido <strong>{{alumno.nombre}}</strong></p>
+            {% empty %}
+        {%endfor%}
+        <a href="/estudiante" class="class-option">Mis datos</a>
+        <a href="/editar_alumno" class="class-option">Modificar datos</a>
+        <a href="/estudiante_notas" class="class-option">Mis notas</a>
+        <p class="espaciado">   </p>
+      </nav>
+
+    <main>
+        <div class="grid-center">
+          <section class="personal-data container-data">
+            <h2>Información personal</h2>
+            {% for alumno in alumnos %}
+            <ul>
+              <li><b>DNI:</b>{{alumno.documento_identidad}}</li>
+              <li><b>lumno:</b> {{alumno.nombre}} {{alumno.apellidos}} </li> 
+              <li><b>Nro. Telef:</b> {{alumno.telefono}}</li>
+              <li><b>Correo:</b> {{alumno.correo_electronico}}</li>
+              <li><b>Dirección:</b> {{alumno.direccion}}</li>
+              <li><b>Fecha Nacimiento:</b> {{alumno.fecha_nacimiento}}</li>
+            </ul>
+            {% empty %}
+            {%endfor%}
+          </section>
+          <section class="academic-data container-data">
+            <h2>Información académica</h2>
+              {% for hist in hists %}
+              <ul>
+                <li><b>Grado académico:</b> {{hist.grado_academico}}</li>
+                <li><b>Num. Repitencias:</b>{{hist.numero_repitencias}}</li>
+                <li><b>Tiempo Estudio:</b> {{hist.tiempo_estudio}}</li>
+                <li><b>Preferencia Profesional:</b> {{hist.preferencia_profesional}}</li>
+              </ul>
+              {% empty %}
+            {%endfor%}
+          </section>
+          <section class="assigned-tutoring container-data">
+            <h2>Psicopedagogo Asignado</h2>
+            {% for psico in psicos %}
+              <ul>
+                <li><b>Fecha Cita:  </b> {{psico.fecha_nacimiento}}</li>
+                <li><b>DNI : </b> {{psico.dni}}</li>
+                <li><b>Grado Académico: </b> {{hist.grado_academico}}</li>
+                <li><b>Psicopedagogo:</b> {{hist.nombre}}</li>
+                <li><b>Número Telefónico:</b> {{hist.numero_telefonico}}</li>
+                <li><b>Correo:</b>{{hist.correo}}</li>
+              </ul>
+              {% empty %}
+            {%endfor%}
+          </section>
+        </div>
+        
+      </main>
+    </div>
+    {% endblock %}
+  </body>
+  </html>
 
 
 
 
-{% endblock %}
+
+

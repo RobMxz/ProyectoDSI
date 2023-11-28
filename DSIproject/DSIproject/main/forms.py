@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Alumno, HistorialAcademico, ReporteNotas
+from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente
 
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -22,5 +22,17 @@ class HistorialAcademicoForm(forms.ModelForm):
         
 class ReporteNotasForm(forms.ModelForm):
     class Meta:
-        model = ReporteNotas
-        exclude = ['alumno']
+        model = ReporteNotas     
+        fields = "__all__"   
+
+#........................................................................................  
+
+class PsicopedagogoForm(forms.ModelForm):
+    class Meta:
+        model = Psicopedagogo
+        exclude=['user'] 
+
+class DocenteForm(forms.ModelForm):
+    class Meta:
+        model = Docente
+        exclude=['user'] 

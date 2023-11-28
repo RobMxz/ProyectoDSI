@@ -25,7 +25,7 @@ class HistorialAcademico(models.Model):
     preferencia_profesional = models.CharField(max_length=100)
 
     def __str__(self):
-        return f"{self.alumno.nombre} {self.alumno.apellidos} - {self.grado_academico}"
+        return f"{self.alumno.documento_identidad}-{self.alumno.nombre} {self.alumno.apellidos} - {self.grado_academico}"
     
 class ReporteNotas(models.Model):
     alumno = models.ForeignKey(HistorialAcademico, on_delete=models.CASCADE)
@@ -37,3 +37,33 @@ class ReporteNotas(models.Model):
     def __str__(self):
         return f"Reporte de Notas - {self.historial_academico.alumno.nombre} {self.historial_academico.alumno.apellidos} - {self.fecha_subida}"
     
+
+#........................................................................................    
+
+class Psicopedagogo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Psicopedagogo_DNI = models.CharField(max_length=8, unique=True)
+    Psicopedagogo_NOMBRE = models.CharField(max_length=100)
+    Psicopedagogo_APELLIDOS = models.CharField(max_length=100)
+    Psicopedagogo_FECHA_NACIMIENTO = models.DateField()
+    Psicopedagogo_GRADO_ACADEMICO = models.CharField(max_length=20)
+    Psicopedagogo_NUMERO_TELEFONICO = models.CharField(max_length=9)
+    Psicopedagogo_DIRECCION = models.TextField()
+    Psicopedagogo_CORREO_ELECTRONICO = models.EmailField(unique=True)    
+
+    def __str__(self):
+        return f"{self.Psicopedagogo_NOMBRE} "
+    
+class Docente(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    Docente_DNI = models.CharField(max_length=8, unique=True)
+    Docente_NOMBRE = models.CharField(max_length=100)
+    Docente_APELLIDOS = models.CharField(max_length=100)
+    Docente_FECHA_NACIMIENTO = models.DateField()
+    Docente_GRADO_ACADEMICO = models.CharField(max_length=15, choices=[('Titulado', 'Titulado'),('Maestría', 'Maestría'), ('Doctorado', 'Doctorado')])    
+    Docente_NUMERO_TELEFONICO = models.CharField(max_length=9)
+    Docente_DIRECCION = models.TextField()
+    Docente_CORREO_ELECTRONICO = models.EmailField(unique=True)   
+
+    def __str__(self):
+        return f"{self.Docente_NOMBRE} "
