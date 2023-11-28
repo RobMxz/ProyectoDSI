@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mi perfil</title>
+  <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="body2">
+  <header> 
+    <img src="assets/SERA_LOGO_BLANCO.png" alt="imagen-logo"> 
+    <img src="assets/SERA_TITULO_BLANCO.png" alt="imagen-logo"> 
+  </header>
+  <div class="display-flex">
+    <nav>
+        <img src="assets/ICONO_GENERAL_PERFIL.png" alt="foto-persona">
+        <p>Bienvenido nombre usuario</p>
+        <a href="#" class="class-option">Mis datos</a>
+        <a href="interfazModificarDatos.html" class="class-option">Modificar datos</a>
+        <a href="misNotasAlumno.html" class="class-option">Registrar observaciones</a>
+        <a href="#" class="class-option">Calendario de citas</a>
+        <p class="espaciado">   </p>
+    </nav>
+    <main>
+        <h1 class="color-title">Registrar citas</h1>
+        <div class="resultado-busqueda">
+            <h2 class="start-left">Resultados</h2>
+            <div class="background-search">
+                <div class="resultado-b">
+                    <div class="observation-generic-data">
+                        <img class="big-icon" src="assets/ICONO_GENERAL_PERFIL.png " alt="foto-persona">
+                        <h2>Leo David Soto Soto</h2>
+                    </div>
+                    <div class="observation-generic-data">
+                        <img class="big-icon" src="assets/I5_ICONO_FECHA.png " alt="foto-persona">
+                        <h2>Fecha del sistema</h2>                                     
+                    </div>
+                    <div class="fecha-container">
+                      <input type="text" id="fecha-input" class="input-calificacion input-fecha" required>
+                    </div>  
+                </div>
+                <h2 class="start-left margin-left">Justificacion</h2>
+                <input type="text" id="descripcion-input" required>     
+            </div>
+        </div>
+        <div class="background-search2">
+          <h3 class="start-left margin-left explanation">Envio de reporte de rendimiento del estudiante,con el posible problema identificado y recomendaciones</h3>
+          <button class="edit-button centrar-button report-button">Enviar reporte</button>
+        </div>
+        <div class="container-btn">
+          <div class="guardar-btn-container"><button class="guardar-btn"><b>Volver</b></button></div>
+          <div class="guardar-btn-container"><button class="guardar-btn"><b>Guardar</b></button></div>
+        </div>     
+    </main>
+  </div>
+</body>
+</html>
