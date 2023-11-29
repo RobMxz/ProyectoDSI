@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm, PsicopedagogoForm, DocenteForm, CitaForm
+from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm, PsicopedagogoForm, DocenteForm, CitaForm,ApoderadoForm,CondicionSocioeconomicaForm,InformacionExtracurricularForm,AdministradorForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente, Cita
+from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente, Cita, Apoderado,InformacionExtracurricular1,CondicionSocioeconomica1,Administrador
 import subprocess
 # Create your views here.
 @login_required(login_url="/login")
@@ -301,3 +301,82 @@ def promedioN3(idalumno):
     
     return promedio/len(reportes)
 
+def apoderado(request):
+    user_actual = request.user
+    apoderados = Apoderado.objects.filter(user=user_actual)
+    context = {"apoderados": apoderados}
+    return render(request,'main/apoderado.html', context)
+
+@login_required(login_url="/login")
+def  create_apoderado(request):
+    if request.method == 'POST':
+        form = ApoderadoForm(request.POST)
+        if form.is_valid():
+            apoderado = form.save(commit=False)
+            apoderado.user = request.user
+            apoderado.save()
+            return redirect("/home")
+    else:
+        form = ApoderadoForm()
+    return render(request, 'main/create_apoderado.html', {'form': form})
+
+
+def InformacionExtracurricular(request):
+    user_actual = request.user
+    informaciones = InformacionExtracurricular1.objects.filter(user=user_actual)
+    context = {"informaciones": informaciones}
+    return render(request,'main/InformacionExtracurricular.html', context)
+
+@login_required(login_url="/login")
+def  create_InformacionExtracurricular(request):
+    if request.method == 'POST':
+        form = InformacionExtracurricularForm(request.POST)
+        if form.is_valid():
+            infor = form.save(commit=False)
+            infor.user = request.user
+            infor.save()
+            return redirect("/home")
+    else:
+        form = InformacionExtracurricularForm()
+    return render(request, 'main/create_InformacionExtracurricular.html', {'form': form})
+
+def CondicionSocioeconomica(request):
+    user_actual = request.user
+    condiciones= CondicionSocioeconomica1.objects.filter(alumno=user_actual)
+    context = {"condiciones": condiciones}
+    return render(request,'main/CondicionSocioeconomica.html', context)
+
+
+@login_required(login_url="/login")
+def  create_CondicionSocioeconomica(request):
+    if request.method == 'POST':
+        form = CondicionSocioeconomicaForm(request.POST)
+        if form.is_valid():
+            cond = form.save(commit=False)
+            cond.user = request.user
+            cond.save()
+            return redirect("/home")
+    else:
+        form = CondicionSocioeconomicaForm()
+    return render(request, 'main/create_CondicionSocioeconomica.html', {'form': form})
+
+def administrador(request):
+    user_actual = request.user
+    administradores = Administrador.objects.filter(user=user_actual)
+    context = {"administradores": administradores}
+    return render(request,'main/administrador.html', context)
+
+
+@login_required(login_url="/login")
+def  create_administrador(request):
+    if request.method == 'POST':
+        form = AdministradorForm(request.POST)
+        if form.is_valid():
+            adm = form.save(commit=False)
+            adm.user = request.user
+            adm.save()
+            return redirect("/home")
+    else:
+        form = AdministradorForm()
+
+    return render(request, 'main/create_administrador.html', {'form': form})

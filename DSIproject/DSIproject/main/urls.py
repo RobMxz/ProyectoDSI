@@ -21,4 +21,13 @@ urlpatterns =[
     path('editar-docente',views.editar_docente, name='editar_docente'),
     path('editar-psicopedagogo',views.editar_psicopedagogo, name='editar_psicopedagogo'),
     path('create-cita',views.create_cita, name='create_cita'),
+    path('create-apoderado',views.create_apoderado, name='create_apoderado'),
+    path('apoderado',views.apoderado, name='apoderado'),
+    path('create-condicion',views.create_CondicionSocioeconomica, name='create_CondicionSocioeconomica'),
+    path('condicion',views.CondicionSocioeconomica, name='CondicionSocioeconomica'),
+    path('create-informacion',views.create_InformacionExtracurricular, name='create_InformacionExtracurricular'),
+    path('informacion',views.InformacionExtracurricular, name='InformacionExtracurricular'),
+    path('administrador',views.administrador, name='administrador'),
+    path('create-administrador',views.create_administrador, name='create_administrador'),
+
 ]

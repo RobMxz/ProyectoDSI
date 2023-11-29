@@ -1,0 +1,56 @@
+{% extends 'main/base.html' %} 
+<!DOCTYPE html>
+<html lang="es">
+{% block title %} Administrador {% endblock %}
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="body2">
+    <header> 
+        <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+        <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex">
+        <nav>
+            <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+            {% for administrador in administradores %}
+                <p>Bienvenido <strong>{{administrador.nombre}}</strong></p>
+                {% empty %}
+            {%endfor%}
+            <a href="/administrador" class="class-option">Mis datos</a>
+            <a href="/create-alumno" class="class-option">Registrar alumno</a>
+            <a href="/create-historial" class="class-option">Registrar historial academico</a>
+            <a href="/create-informacion" class="class-option">Registrar informacion extracurricular</a>
+            <a href="/create-apoderado" class="class-option">Registrar informacion de apoderado</a>
+            <a href="/create-condicion" class="class-option">Registrar condicion socioeconomica</a>
+            <a href="/create-docente" class="class-option">Registrar docente</a>
+            <a href="/create-psicopedagogo" class="class-option">Registrar psicopedagogo</a>
+            <p class="espaciado">   </p>  
+        </nav>
+        <main>
+            <div class="grid-center">
+            <section class="personal-data container-data">
+                <h2>Información personal</h2>
+                {% for administrador in administradores %}
+                <ul>
+                    <li><b>DNI:</b>{{administrador.documento_identidad}}</li>
+                    <li><b>Nombre:</b>{{administrador.nombre}} {{administrador.apellidos}}</li> 
+                    <li><b>Fecha Nacimiento:</b>{{administrador.Nacimiento}}</li>
+                    <li><b>Nro. Telef:</b>{{administrador.telefono}}</li>
+                    <li><b>Correo:</b>{{administrador.correo_electronico}}</li>
+                    <li><b>Dirección:</b>{{administrador.direccion}}</li>  
+                </ul>
+                {% empty %}
+                {%endfor%}
+            </section>
+            </div>
+        </main>
+    </div>
+    {% endblock %}
+</body>
+</html>
+
