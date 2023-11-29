@@ -1,8 +1,68 @@
-{% extends 'main/base.html' %}
-{% block title %} Crear Notas {% endblock %}
-{% block content%}
-<form method="post">
-{% csrf_token %}{{form}}
-<button type="submit" class="btn btn-success">Crear</button>
-</form>
-{% endblock %}
+{% extends 'main/base.html' %} 
+<!DOCTYPE html>
+<html lang="es">
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="style.css"> 
+  </head>
+  <body class="body2">
+    <header> 
+      <img src="assets/SERA_LOGO_BLANCO.png" alt="imagen-logo"> 
+      <img src="assets/SERA_TITULO_BLANCO.png" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex">
+      <nav>
+        <img src="assets/ICONO_GENERAL_PERFIL.png" alt="foto-persona">
+        <p>Bienvenido nombre usuario</p>
+        <a href="interfazDatosDocente.html" class="class-option">Mis datos</a>
+        <a href="interfazModificarDatosDocente.html" class="class-option">Modificar datos</a>
+        <a href="registroCalificacionDocente.html" class="class-option">Ingresar notas</a>
+        <p class="espaciado">   </p>
+      </nav>
+      <main class="modification-main">
+         <h1 class="color-title">Registro de calificaciones</h1> 
+         <div id="informacion-profesor-curso">
+              <div class="datos-muestra separacion">
+                    <div><h1>Estudiante</h1></div>
+                    <form class="margin-left">
+                      <select class="edit-select">
+                        <option>Academica</option>
+                        <option>Conductual</option>
+                        <option>Emocional</option>
+                        <option>Social</option>
+                      </select>
+                    </form>  
+                    <button class="search-button2 auto-width">
+                      <h1 class="color-title-white">Buscar</h1>
+                    </button>               
+                </div>  
+          </div>
+        
+          <div class="resultado-busqueda">
+            <div class="background-search">
+                <h2 class="start-left margin-left">Fecha subida</h2>
+                <input type="text" id="fecha-input" class="input-calificacion" required>
+                <h2 class="start-left margin-left">Promedios</h2>  
+                <h2 class="start-left margin-left">Matematicas</h2>
+                <input type="text" id="matematica-input" class="input-calificacion" required>
+                <h2 class="start-left margin-left">Ciencias</h2>
+                <input type="text" id="ciencia-input" class="input-calificacion"  required>
+                <h2 class="start-left margin-left">Humanidades</h2>
+                <input type="text" id="humanidades-input" class="input-calificacion" required>
+            </div>
+          </div>
+         <div class="guardar-btn-container">
+            <form method="post">
+                {% csrf_token %}{{form}}
+                <button type="submit" class="btn btn-success">Crear</button>
+            </form>
+         </div>
+      </main>
+    </div>
+    {% endblock %}
+  </body>
+  </html>
+

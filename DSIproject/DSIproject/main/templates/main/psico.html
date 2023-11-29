@@ -19,23 +19,26 @@
     <nav>
       <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
       <p>Bienvenido nombre usuario</p>
-      <a href="interfazDatosPsicopedagogo.html" class="class-option">Mis datos</a>
-      <a href="interfazModificarDatosPsicopedagogo.html" class="class-option">Modificar datos</a>
-      <a href="registrarCitasPsicopedagogo.html" class="class-option">Registrar citas</a>
+      <a href="#" class="class-option">Mis datos</a>
+      <a href="#" class="class-option">Modificar datos</a>
+      <a href="#" class="class-option">Registrar citas</a>
       <p class="espaciado">   </p>
     </nav>
     <main>
       <div class="grid-center">
         <section class="personal-data container-data">
           <h2>Información personal</h2>
+          {% for psicopedagogo in psicopedagogos %}
           <ul>
-            <li><b>DNI:</b> 71917554</li>
+            <li><b>DNI:</b> {{psicopedagogo.Psicopedagogo_NOMBRE}}</li>
             <li><b>Alumno:</b> Neiter Aylas Mackley Tiburcio</li>
             <li><b>ANro. Telef:</b> 921 070 975</li>
             <li><b>ACorreo:</b> Neiter.aylas@unmsm.edu.pe</li>
             <li><b>ADirección:</b> MZ 6 LT. 19 Asoc. Viv. Villa de Jesús Sto Sector</li>
             <li><b>AFecha Nacimiento:</b> 10/10/2003</li>
           </ul>
+          {% empty %}
+          {%endfor%}
         </section>
       </div>
     </main>

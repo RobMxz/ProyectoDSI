@@ -1,9 +1,33 @@
 {% extends 'main/base.html' %}
 {% block title %} Login {% endblock %}
 {% block content%}
-<form method="post">
-{% csrf_token %}{{form}}
-<p>Don't have an account? Create one <a href="/sign-up">Here</a></p>
-<button type="submit" class="btn btn-success">Login</button>
-</form>
-{% endblock %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <header> 
+        <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+        <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+    <div class="container">
+        <div class="container-icon">
+            <img class="icon" src="{% static 'assets/SERA_LOGO_ROSA_OSCURO.png' %}" alt="logo-sera-rosa">
+        </div>
+        <h1 class="login-title">Inicio de sesión</h1> 
+        <form method="post">
+            <div class="form-group">
+                {% csrf_token %}{{form}}
+            </div>
+            <button type="submit" class="btn btn-success">Ingresar</button>
+            {% endblock %}
+        </form>
+    </div>
+</body>
+
+
+
+
+

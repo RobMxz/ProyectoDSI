@@ -1,0 +1,70 @@
+{% extends 'main/base.html' %} 
+<!DOCTYPE html>
+<html lang="es">
+{% block title %} Docente {% endblock %}
+{% block content %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="body2">
+    <header> 
+        <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+        <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex">
+        <nav>
+            <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+            {% for docente in docentes %}
+                <p>Bienvenido <strong>{{docente.Docente_NOMBRE}}</strong></p>
+                {% empty %}
+            {%endfor%}
+            <a href="/docente" class="class-option">Mis datos</a>
+            <a href="/editar_docente" class="class-option">Modificar datos</a>
+            <a href="/estudiante_notas" class="class-option">Mis notas</a>
+            <p class="espaciado">   </p>  
+        </nav>
+        <main>
+            <div class="grid-center">
+            <section class="personal-data container-data">
+                <h2>Información personal</h2>
+                {% for docente in docentes %}
+                <ul>
+                    <li><b>DNI:</b>{{docente.Docente_DNI}}</li>
+                    <li><b>Nombre:</b> {{docente.Docente_NOMBRE}} {{docente.Docente_APELLIDOS}} </li> 
+                    <li><b>Fecha Nacimiento:</b>{{docente.Docente_FECHA_NACIMIENTO}}</li>
+                    <li><b>Grado académico:</b>{{docente.Docente_GRADO_ACADEMICO}}</li>
+                    <li><b>Nro. Telef:</b>{{docente.Docente_NUMERO_TELEFONICO}}</li>
+                    <li><b>Correo:</b>{{docente.Docente_CORREO_ELECTRONICO}}</li>
+                    <li><b>Dirección:</b>{{docente.Docente_DIRECCION}}</li>  
+                </ul>
+                {% empty %}
+                {%endfor%}
+            </section>
+            </div>
+        </main>
+    </div>
+    {% endblock %}
+</body>
+</html>
+<!--
+<div>
+    <h2>Información Personal</h2>
+    {% for docente in docentes %}
+    <h5>DNI: </h5><span>{{docente.Docente_DNI}}</span>
+    <h5>Docente: </h5><span>{{docente.Docente_NOMBRE}} {{docente.Docente_APELLIDOS}}</span>
+    <h5>Fecha de nacimiento: </h5><span>{{docente.Docente_FECHA_NACIMIENTO}}</span>
+    <h5>Grado academico: </h5><span>{{docente.Docente_GRADO_ACADEMICO}}</span>
+    <h5>Número Telefónico: </h5><span>{{docente.Docente_NUMERO_TELEFONICO}}</span>
+    <h5>Dirección: </h5><span>{{docente.Docente_DIRECCION}}</span>
+    <h5>Correo Electrónico: </h5><span>{{docente.Docente_CORREO_ELECTRONICO}}</span>    
+    {% empty %}
+    <p>Ningun docente :(</p>
+    {%endfor%}
+</div>-->
+
+
+
+

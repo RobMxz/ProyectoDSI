@@ -1,0 +1,44 @@
+{% extends 'main/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+{% block content%}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Docente</title> 
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body class="body2">
+    <header> 
+      <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+      <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex"></div>
+    <nav>
+        <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+        {% for docente in docentes %}
+        <p>Bienvenido <strong>{{docente.Docente_NOMBRE}}</strong></p>
+            {% empty %}
+        {%endfor%}
+        <a href="/docente" class="class-option">Mis datos</a>
+        <a href="/editar_docente" class="class-option">Modificar datos</a>
+        <a href="#" class="class-option">Ingresar notas</a>
+        <p class="espaciado">   </p>
+      </nav>
+      <main>
+        <div class="grid-center">
+          <section class="personal-data container-data">
+            <h2>Información personal</h2>
+            <form method="post">
+                {% csrf_token %}{{form}}
+                <button type="submit" class="btn btn-success">Guardar cambios</button>
+            </form>  
+            <div class="container-button"><button class="edit-button">Editar</button></div>
+          </section>
+        </div>
+      </main>
+    </div>
+    {% endblock %}
+  </body>
+  </html>

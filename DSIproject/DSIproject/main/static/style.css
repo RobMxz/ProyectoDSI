@@ -289,6 +289,15 @@ flex-direction: column;
 border-radius: 5%;
 }
 
+.container-data2{
+  margin: 3%;
+  padding: 0 5%;
+  height: auto;
+  width: 200%;
+  flex-direction: column;
+  border-radius: 5%;
+  }
+
 
 .edit-button{
 display: flex; /* condicionable*/

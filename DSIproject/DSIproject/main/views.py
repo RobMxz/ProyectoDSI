@@ -1,17 +1,12 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm
+from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm, PsicopedagogoForm, DocenteForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import Alumno, HistorialAcademico, ReporteNotas
+from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente
 # Create your views here.
 @login_required(login_url="/login")
 def home(request):
-    user_actual = request.user
-    alumnos = Alumno.objects.filter(user=user_actual)
-    alumno = get_object_or_404(Alumno, user=request.user)
-    hists = HistorialAcademico.objects.filter(alumno=alumno)
-    context = {"alumnos": alumnos, "hists": hists}
-    return render(request, 'main/home.html', context)
+    return render(request, 'main/home.html')
 
 @login_required(login_url="/login")
 def create_alumno(request):
@@ -75,13 +70,14 @@ def editar_historial(request):
 
 @login_required(login_url="/login")
 def create_notas(request):
-    user_actual = request.user
-    alumnos = Alumno.objects.filter(user=user_actual)
-    alumno = get_object_or_404(Alumno, user=request.user)
-    hist = get_object_or_404(HistorialAcademico, alumno=alumno)
+
     if request.method == 'POST':
         form = ReporteNotasForm(request.POST)
         if form.is_valid():
+            user_actual = request.user
+            alumnos = Alumno.objects.filter(user=user_actual)
+            alumno = get_object_or_404(Alumno, user=request.user)
+            hist = get_object_or_404(HistorialAcademico, alumno=alumno)
             nota = form.save(commit=False)
             nota.alumno = hist
             nota.save()
@@ -90,6 +86,24 @@ def create_notas(request):
         form = ReporteNotasForm()
 
     return render(request, 'main/create_notas.html', {'form': form})
+
+
+@login_required(login_url="/login")
+def create_notas(request):
+    if request.method == 'POST':
+        form = ReporteNotasForm(request.POST)
+        if form.is_valid():
+            nota = form.save(commit=False)
+            nota.save()
+            return redirect("/home")
+    else:
+        form = ReporteNotasForm()
+
+    # Obtén todos los historiales académicos para mostrar en el desplegable del formulario
+    historiales_academicos = HistorialAcademico.objects.all()
+
+    return render(request, 'main/create_notas.html', {'form': form, 'historiales_academicos': historiales_academicos})
+
 
 
 @login_required(login_url="/login")
@@ -126,6 +140,8 @@ def redirection_view(request):
         return redirect('/estudiante')
     elif user_group and user_group.name == 'Psicopedagogo':
         return redirect('/psicopedagogo')
+    elif user_group and user_group.name == 'Docente':
+        return redirect('/docente')
     elif request.user.is_superuser:
         return redirect('/admin')
     else:
@@ -142,3 +158,53 @@ def estudiante(request):
 
 def psicopedagogo(request):
     return render(request,'main/psico.html')
+
+
+#........................................................................................  
+
+def create_psicopedagogo(request):
+    if request.method == 'POST':
+        form = PsicopedagogoForm(request.POST)
+        if form.is_valid():
+            psicopedagogo = form.save(commit=False)
+            psicopedagogo.user = request.user
+            psicopedagogo.save()
+            return redirect("/home")
+    else:
+        form = PsicopedagogoForm()
+
+    return render(request, 'main/create_psicopedagogo.html', {'form': form})
+
+
+def create_docente(request):
+    if request.method == 'POST':
+        form = DocenteForm(request.POST)
+        if form.is_valid():
+            docente = form.save(commit=False)
+            docente.user = request.user
+            docente.save()
+            return redirect("/home")
+    else:
+        form = DocenteForm()
+
+    return render(request, 'main/create_docente.html', {'form': form})
+
+def docente(request):
+    user_actual = request.user
+    docentes = Docente.objects.filter(user=user_actual)
+    context = {"docentes": docentes}
+    return render(request,'main/docente.html', context)
+
+@login_required(login_url="/login")
+def editar_docente(request):
+    docente = get_object_or_404(Docente, user=request.user)
+
+    if request.method == 'POST':
+        form = DocenteForm(request.POST, instance=docente)
+        if form.is_valid():
+            form.save()
+            return redirect("/home")
+    else:
+        form = DocenteForm(instance=docente)
+
+    return render(request, 'main/editar_docente.html', {'form': form})

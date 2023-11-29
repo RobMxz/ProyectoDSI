@@ -1,6 +1,7 @@
 {% extends 'main/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
+{% block title %} Estudiante {% endblock %}
 {% block content %}
 {% load static %}
 <head>
@@ -13,7 +14,6 @@
       <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
       <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
     </header>
-
     <div class="display-flex">
       <nav>
         <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
@@ -26,7 +26,6 @@
         <a href="/estudiante_notas" class="class-option">Mis notas</a>
         <p class="espaciado">   </p>
       </nav>
-
     <main>
         <div class="grid-center">
           <section class="personal-data container-data">
@@ -60,7 +59,7 @@
             {% for psico in psicos %}
               <ul>
                 <li><b>Fecha Cita:  </b> {{psico.fecha_nacimiento}}</li>
-                <li><b>DNI : </b> {{psico.dni}}</li>
+                <li><b>DNI : </b> {{psico.Psicopedagogo_DNI}}</li>
                 <li><b>Grado Académico: </b> {{hist.grado_academico}}</li>
                 <li><b>Psicopedagogo:</b> {{hist.nombre}}</li>
                 <li><b>Número Telefónico:</b> {{hist.numero_telefonico}}</li>
@@ -70,12 +69,11 @@
             {%endfor%}
           </section>
         </div>
-        
       </main>
     </div>
     {% endblock %}
-  </body>
-  </html>
+</body>
+</html>
 
 
 
