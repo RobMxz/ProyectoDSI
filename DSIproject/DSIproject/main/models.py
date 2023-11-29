@@ -67,3 +67,11 @@ class Docente(models.Model):
 
     def __str__(self):
         return f"{self.Docente_NOMBRE} "
+
+class Cita(models.Model):
+    psicopedagogo = models.ForeignKey(Psicopedagogo, on_delete=models.CASCADE)
+    alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    fecha = models.DateField()
+
+    def __str__(self):
+        return f"{self.psicopedagogo.nombre} {self.psicopedagogo.apellidos} - {self.fecha}"

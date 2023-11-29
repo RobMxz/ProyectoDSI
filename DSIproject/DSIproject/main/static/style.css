@@ -920,7 +920,7 @@ color: var(--blanco);
 }
 .container-search{
 display: grid;
-grid-template-columns: 4fr 1fr;
+grid-template-columns: 4fr 1fr; 
 }
 
 /* Ventana emergente*/
@@ -1003,4 +1003,16 @@ margin-bottom: 5%;
 
 .boton-centrado{
 margin-left: 110%;
+}
+.padding{
+  padding: 0 27%;
+}
+.centrar{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.padding2{
+  padding: 0 60%;
 }

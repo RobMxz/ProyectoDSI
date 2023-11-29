@@ -18,10 +18,13 @@
   <div class="display-flex">
     <nav>
       <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
-      <p>Bienvenido nombre usuario</p>
-      <a href="#" class="class-option">Mis datos</a>
-      <a href="#" class="class-option">Modificar datos</a>
-      <a href="#" class="class-option">Registrar citas</a>
+      {% for psicopedagogo in psicopedagogos %}
+        <p>Bienvenido {{psicopedagogo.Psicopedagogo_NOMBRE}}</p>
+      {% empty %}
+      {%endfor%}
+      <a href="/psicopedagogo" class="class-option">Mis datos</a>
+      <a href="/editar-psicopedagogo" class="class-option">Modificar datos</a>
+      <a href="/create-cita" class="class-option">Registrar citas</a>
       <p class="espaciado">   </p>
     </nav>
     <main>
@@ -30,12 +33,13 @@
           <h2>Información personal</h2>
           {% for psicopedagogo in psicopedagogos %}
           <ul>
-            <li><b>DNI:</b> {{psicopedagogo.Psicopedagogo_NOMBRE}}</li>
-            <li><b>Alumno:</b> Neiter Aylas Mackley Tiburcio</li>
-            <li><b>ANro. Telef:</b> 921 070 975</li>
-            <li><b>ACorreo:</b> Neiter.aylas@unmsm.edu.pe</li>
-            <li><b>ADirección:</b> MZ 6 LT. 19 Asoc. Viv. Villa de Jesús Sto Sector</li>
-            <li><b>AFecha Nacimiento:</b> 10/10/2003</li>
+            <li><b>DNI:</b> {{psicopedagogo.Psicopedagogo_DNI}}</li>
+            <li><b>Nombre:</b> {{psicopedagogo.Psicopedagogo_NOMBRE}} {{psicopedagogo.Psicopedagogo_APELLIDOS}}</li>
+            <li><b>Grado Academico:</b> {{psicopedagogo.Psicopedagogo_GRADO_ACADEMICO}}</li>
+            <li><b>Nro. Telef:</b> {{psicopedagogo.Psicopedagogo_NUMERO_TELEFONICO}}</li>
+            <li><b>Correo:</b> {{psicopedagogo.Psicopedagogo_CORREO_ELECTRONICO}}</li>
+            <li><b>Dirección:</b> {{psicopedagogo.Psicopedagogo_DIRECCION}}</li>
+            <li><b>Fecha Nacimiento:</b> {{psicopedagogo.Psicopedagogo_FECHA_NACIMIENTO}}</li>
           </ul>
           {% empty %}
           {%endfor%}
@@ -46,3 +50,4 @@
 </body>
 {% endblock %}
 </html>
+

@@ -1,15 +1,15 @@
-{% extends 'main/base.html' %} 
+{% extends 'main/base.html' %}
 <!DOCTYPE html>
 <html lang="es">
-{% block title %} Registrar calificaciones {% endblock %}
-{% block content %}
+{% block title %} Crear cita {% endblock %}
+{% block content%}
 {% load static %}
 <head>
     <meta charset="UTF-8">
     <title>Registrar calificaciones</title>
     <link rel="stylesheet" href="{% static 'style.css' %}"> 
 </head>
-  <body class="body2">
+<body class="body2">
     <header> 
       <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
       <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
@@ -17,23 +17,22 @@
     <div class="display-flex">
       <nav>
         <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
-        {% for docente in docentes %}
-        <p>Bienvenido <strong>{{docente.Docente_NOMBRE}}</strong></p>
+        {% for psicopedagogo in psicopedagogos %}
+        <p>Bienvenido <strong>{{psicopedagogo.Psicopedagogo_NOMBRE}}</strong></p>
             {% empty %}
         {%endfor%}
-        <a href="/docente" class="class-option">Mis datos</a>
-        <a href="/editar-docente" class="class-option">Modificar datos</a>
-        <a href="/create-notas" class="class-option">Ingresar notas</a>
+        <a href="/psicopedagogo" class="class-option">Mis datos</a>
+        <a href="/editar-psicopedagogo" class="class-option">Modificar datos</a>
+        <a href="/create-cita" class="class-option">Registrar cita</a>
         <p class="espaciado">   </p>
       </nav>
       <main class="modification-main">
-         <h1 class="color-title">Registro de calificaciones</h1> 
+         <h1 class="color-title">Registro de citas</h1> 
          
-        
           <div class="resultado-busqueda ">
-            <div class="background-search padding">
+            <div class="background-search ">
               <div class="guardar-btn-container">
-                <form method="post">
+                <form method="post" class="centrar padding2">
                   {% csrf_token %}{{form}}
                     <button type="submit" class="btn btn-success edit-button">Crear</button>
                 </form>
@@ -46,4 +45,3 @@
     {% endblock %}
   </body>
   </html>
-

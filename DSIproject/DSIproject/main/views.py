@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm, PsicopedagogoForm, DocenteForm
+from .forms import RegisterForm,AlumnoForm, HistorialAcademicoForm, ReporteNotasForm, PsicopedagogoForm, DocenteForm, CitaForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.decorators import login_required, permission_required
-from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente
+from .models import Alumno, HistorialAcademico, ReporteNotas, Psicopedagogo, Docente, Cita
+import subprocess
 # Create your views here.
 @login_required(login_url="/login")
 def home(request):
@@ -154,10 +155,15 @@ def estudiante(request):
     alumno = get_object_or_404(Alumno, user=request.user)
     hists = HistorialAcademico.objects.filter(alumno=alumno)
     context = {"alumnos": alumnos, "hists": hists}
+    citas = Cita.objects.filter(alumno=alumno)
+    context = {"alumnos": alumnos, "hists": hists, "citas":citas}
     return render(request,'main/estudiante.html', context)
 
 def psicopedagogo(request):
-    return render(request,'main/psico.html')
+    user_actual = request.user
+    psicopedagogos = Psicopedagogo.objects.filter(user=user_actual)
+    context = {"psicopedagogos": psicopedagogos}
+    return render(request,'main/psico.html', context)
 
 
 #........................................................................................  
@@ -208,3 +214,90 @@ def editar_docente(request):
         form = DocenteForm(instance=docente)
 
     return render(request, 'main/editar_docente.html', {'form': form})
+
+@login_required(login_url="/login")
+def editar_psicopedagogo(request):
+    psicopedagogo = get_object_or_404(Psicopedagogo, user=request.user)
+
+    if request.method == 'POST':
+        form = PsicopedagogoForm(request.POST, instance=psicopedagogo)
+        if form.is_valid():
+            form.save()
+            return redirect("/home")
+    else:
+        form = PsicopedagogoForm(instance=psicopedagogo)
+
+    return render(request, 'main/editar_psicopedagogo.html', {'form': form})
+
+@login_required(login_url="/login")
+def create_cita(request):
+    #psicopedagogo = get_object_or_404(Psicopedagogo, user=request.user)
+    #BORRAR psicopedgagog
+    psicopedagogo = Psicopedagogo.objects.filter(user=request.user).first()
+    if request.method == 'POST':
+        form = CitaForm(request.POST)
+        if form.is_valid():
+            cita = form.save(commit=False)
+            cita.psicopedagogo = psicopedagogo
+            cita.save()
+            username = cita.alumno.nombre
+            dni = cita.alumno.documento_identidad
+            #promM = str(promedioN1(cita.alumno.id))
+            a = promedioN1(cita.alumno.id)
+            promM = str(a)
+            b = promedioN3(cita.alumno.id)
+            promL = str(b)
+            c = promedioN2(cita.alumno.id)
+            promC = str(c)
+            
+            nac=str(cita.alumno.fecha_nacimiento)
+            
+            b = HistorialAcademico.objects.get(alumno=cita.alumno)
+            tmp_est = str(b.tiempo_estudio)
+            failures =str(b.numero_repitencias)
+            higher = b.preferencia_profesional 
+            subprocess.run(['python', 'correo.py', username,
+                            dni, promM, promL, promC, nac,tmp_est,failures,higher])
+            return redirect("/home")
+    else:
+        form = CitaForm()
+
+    return render(request, 'main/create_cita.html', {'form': form})
+
+
+def promedioN1(idalumno):
+    promedio =0
+    alumno = Alumno.objects.get(pk=idalumno)
+    b = HistorialAcademico.objects.get(alumno=alumno)
+    reportes = ReporteNotas.objects.filter(alumno = b)
+    
+    for reporte in reportes:
+        
+        promedio += reporte.prom_matematica
+    
+    return promedio/len(reportes)
+
+def promedioN2(idalumno):
+    promedio =0
+    alumno = Alumno.objects.get(pk=idalumno)
+    b = HistorialAcademico.objects.get(alumno=alumno)
+    reportes = ReporteNotas.objects.filter(alumno = b)
+    
+    for reporte in reportes:
+        
+        promedio += reporte.prom_ciencia
+    
+    return promedio/len(reportes)   
+
+def promedioN3(idalumno):
+    promedio =0
+    alumno = Alumno.objects.get(pk=idalumno)
+    b = HistorialAcademico.objects.get(alumno=alumno)
+    reportes = ReporteNotas.objects.filter(alumno = b)
+    
+    for reporte in reportes:
+        
+        promedio += reporte.prom_lenguaje
+    
+    return promedio/len(reportes)
+

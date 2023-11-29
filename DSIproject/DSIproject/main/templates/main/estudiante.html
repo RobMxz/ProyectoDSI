@@ -22,8 +22,8 @@
             {% empty %}
         {%endfor%}
         <a href="/estudiante" class="class-option">Mis datos</a>
-        <a href="/editar_alumno" class="class-option">Modificar datos</a>
-        <a href="/estudiante_notas" class="class-option">Mis notas</a>
+        <a href="/editar-alumno" class="class-option">Modificar datos</a>
+        <a href="/estudiante-notas" class="class-option">Mis notas</a>
         <p class="espaciado">   </p>
       </nav>
     <main>
@@ -56,14 +56,11 @@
           </section>
           <section class="assigned-tutoring container-data">
             <h2>Psicopedagogo Asignado</h2>
-            {% for psico in psicos %}
+            {% for cita in citas %}
               <ul>
-                <li><b>Fecha Cita:  </b> {{psico.fecha_nacimiento}}</li>
-                <li><b>DNI : </b> {{psico.Psicopedagogo_DNI}}</li>
-                <li><b>Grado Académico: </b> {{hist.grado_academico}}</li>
-                <li><b>Psicopedagogo:</b> {{hist.nombre}}</li>
-                <li><b>Número Telefónico:</b> {{hist.numero_telefonico}}</li>
-                <li><b>Correo:</b>{{hist.correo}}</li>
+                <li><b>Fecha Cita:  </b> {{cita.fecha}}</li>
+                <li><b>Psicopedagogo:</b> {{cita.psicopedagogo}}</li>
+                <li> </li>
               </ul>
               {% empty %}
             {%endfor%}
