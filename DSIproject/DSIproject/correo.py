@@ -9,24 +9,12 @@ from sklearn.model_selection import train_test_split
 # Configura los detalles de tu servidor de correo SMTP
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
-<<<<<<< HEAD
-
-
 
 smtp_username = 'CORREO DEL REMITENTE'
 smtp_password = 'CLAVE (DE APP NO DE CORREO DEL REMITENTE'
 
 modelo = joblib.load('modelo2.pkl')
 
-=======
-smtp_username = 'robmxz1234@gmail.com'
-smtp_password = 'uyaaqdtiuvewalmc'
-
-modelo = joblib.load('modelo2.pkl')
-X_prediccion= ["15","0","1","1","3","0","0","1","3","0","0"]
-
-prediccion = modelo.predict([X_prediccion])
->>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
 name = sys.argv[1]
 codigo = sys.argv[2]
 fecha_actual = datetime.now()
@@ -34,18 +22,10 @@ fecha_actual_str = fecha_actual.strftime("%Y-%m-%d")
 Periodo = "2023-II"
 Estado = ""
 P_prob = "No sé"
-<<<<<<< HEAD
 Recomendaciones ="Todo bien "
 N1 = round(float(sys.argv[3]),2)
 N2 = round(float(sys.argv[4]),2)
 N3 = round(float(sys.argv[5]),2)
-=======
-Recomendaciones = "No sé"
-N1 = float(sys.argv[3])
-N2 = float(sys.argv[4])
-N3 = float(sys.argv[5])
->>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
-
 
 if(round(((N1+N2+N3)/3),2)>14):
     Estado = "Buen promedio"
@@ -74,7 +54,6 @@ higher = 0
 
 if (interes != ""):
     higher = 1
-<<<<<<< HEAD
 
 
 vivienda = sys.argv[10]
@@ -120,13 +99,6 @@ msg = MIMEMultipart()
 msg['From'] = 'CORREO DEL REMITENTE'
 msg['To'] = 'CORREO DEL DESTINATARIO'
 msg['Subject'] = f'Reporte estudiante {name}'
-=======
-# Crea el objeto MIMEMultipart para el correo
-msg = MIMEMultipart()
-msg['From'] = 'robmxz1234@gmail.com'
-msg['To'] = 'carolina.seminario@unmsm.edu.pe'
-msg['Subject'] = 'Talvez correo final 2'
->>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
 html = f"""
 <!DOCTYPE html>
 <html lang="es">
