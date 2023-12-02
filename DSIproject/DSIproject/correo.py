@@ -150,13 +150,6 @@ html = f"""
             <p class="items">Periodo: {Periodo}</p>
             <div id="periodo"></div>
 
-<<<<<<< HEAD
-=======
-            <p id="acotacion" style="font-size: small; font-style: italic; color: #b998b3; margin-right: 50%;">
-                * En la sección derecha puede visualizar un gráfico que resume el rendimiento en las tres (3) áreas consideradas.
-            </p>
-
->>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
             <h2 style="color: #9a547c;">Análisis de rendimiento</h2>
 
             <p class="items">Estado de rendimiento: {Estado}</p>
@@ -168,14 +161,6 @@ html = f"""
             <p class="items">Recomendaciones: {Recomendaciones}</p>
             <div id="recomendacion"></div>
         </div>
-<<<<<<< HEAD
-=======
-
-        <!-- Imagen a la derecha -->
-        <div style="margin-left: 20px;">
-            <img src="https://is4-ssl.mzstatic.com/image/thumb/Purple49/v4/8c/2e/05/8c2e051b-a1f0-1600-dbd7-03707c029cd1/source/256x256bb.jpg" alt="Gráfico de progreso" style="width: 70%; height: auto; margin-top: 35%; margin-right:120px">
-        </div>
->>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     </div>
 
 </body>
