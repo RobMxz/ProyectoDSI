@@ -55,13 +55,17 @@ En el proyecto, se encontraron y resolvieron problemas durante su desarrollo. A 
 Este proyecto está bajo la Licencia [software libre].
 
 ##Equipo
-Aylas Tiburcio, Neiter Mackley Jefe de Front-end
-Chujutalli Paucar, Carlos Eric Colaborador fullstack
-Del Aguila Ríos, Joaquín Darwin Gabriel Implementador de interfaz
-Huayanay Arcos, Johan Paolo Tester 
-Palacios Chávez, Roberto Paolo Jefe de Back-end
-Pineda Silupu, Kevin Jair Jefe de diseño y arquitectura 
-Seminario Valdivia, Carolina Isabel Analista de negocio
-Soto Soto, Leo David Documentador
+- Aylas Tiburcio, Neiter Mackley Jefe de Front-end
+- Chujutalli Paucar, Carlos Eric Colaborador fullstack
+- Del Aguila Ríos, Joaquín Darwin Gabriel Implementador de interfaz
+- Huayanay Arcos, Johan Paolo Tester
+- Palacios Chávez, Roberto Paolo Jefe de Back-end
+- Pineda Silupu, Kevin Jair Jefe de diseño y arquitectura
+- Seminario Valdivia, Carolina Isabel Analista de negocio
+- Soto Soto, Leo David Documentador
+- ** Fuera de los roles, todos aportador en la codificación
+ 
 
-** Fuera de los roles, todos aportador en la codificación
+
+
+
