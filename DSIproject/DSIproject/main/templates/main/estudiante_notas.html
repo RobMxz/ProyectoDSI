@@ -1,15 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
 {% extends 'main/base.html' %} 
 {% block title %} Notas{% endblock %}
 {% block content %}
-<div>
-    <h2>Notas</h2>
-    {% for nota in notas %}
-    <h5>Promedio Matematica: </h5><span>{{nota.prom_matematica}}</span>
-    <h5>Promedio Ciencia: </h5><span>{{nota.prom_ciencia}}</span>
-    <h5>Promedio Lenguaje: </h5><span>{{nota.prom_lenguaje}}</span>
-    {% empty %}
-    <p>Ningun promedio :(</p>
-    {%endfor%}
-</div>
-</div>
-{% endblock %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Mi perfil</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body class="body2">
+    <header> 
+        <img src="{% static 'assets/SERA_LOGO_BLANCO.png ' %}" alt="imagen-logo"> 
+        <img src="{% static 'assets/SERA_TITULO_BLANCO.png ' %}" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex">
+        <nav>
+            <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+            {% for alumno in alumnos %}
+                <p>Bienvenido <strong>{{alumno.nombre}}</strong></p>
+                {% empty %}
+            {%endfor%}
+            <a href="/estudiante" class="class-option">Mis datos</a>
+            <a href="/editar-alumno" class="class-option">Modificar datos</a>
+            <a href="/estudiante-notas" class="class-option">Mis notas</a>
+            <a href="/create-historial" class="class-option">Registrar historial academico</a>
+            <p class="espaciado">   </p>
+        </nav> 
+        <main>
+            <div class="container1">
+              <h1 class="color-title">Notas</h1>  
+              <table>
+                  <thead>
+                      <tr>
+                          <th>Área</th>
+                          <th>Nota</th>
+                      </tr>
+                  </thead>
+                  {% for nota in notas %}
+                  <tbody>
+                      <tr>
+                          <td>Promedio Matematica</td>
+                          <td>{{nota.prom_matematica}}</td>
+                      </tr>
+                      <tr>
+                        <td>Promedio Ciencia</td>
+                        <td>{{nota.prom_ciencia}}</td>
+                      </tr>
+                      <tr>
+                        <td>Promedio Lenguaje</td>
+                        <td>{{nota.prom_lenguaje}}</td>
+                      </tr>
+                  </tbody>
+                {% empty %}
+                {%endfor%}
+              </table>
+              
+            </div>
+          </main>  
+    <div>
+    {% endblock %}
+</body>
+</html>

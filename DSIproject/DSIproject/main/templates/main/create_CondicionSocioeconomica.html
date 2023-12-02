@@ -1,0 +1,51 @@
+{% extends 'main/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+{% block title %} Crear condicion socioeconomica {% endblock %}
+{% block content%}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar docent</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head>
+<body class="body2">
+    <header> 
+        <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+        <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+  <div class="display-flex">
+    <nav>
+      <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+      {% for administrador in administradores %}
+          <p>Bienvenido <strong>{{administrador.nombre}}</strong></p>
+          {% empty %}
+      {%endfor%}
+      <a href="/administrador" class="class-option">Mis datos</a>
+      <a href="/create-alumno" class="class-option">Registrar alumno</a>
+      <a href="/create-informacion" class="class-option">Registrar informacion extracurricular</a>
+      <a href="/create-apoderado" class="class-option">Registrar informacion de apoderado</a>
+      <a href="/create-condicion" class="class-option">Registrar condicion socioeconomica</a>
+      <a href="/create-docente" class="class-option">Registrar docente</a>
+      <a href="/create-psicopedagogo" class="class-option">Registrar psicopedagogo</a>
+      <p class="espaciado">   </p>  
+  </nav>
+    <main>
+        <h1 class="color-title">Registrar condición socioeconómica</h1>
+        <div class="container-dia-cita">
+            <div class="card">
+                <div class="container-btn">
+                  <div class="guardar-btn-container">
+                    <form method="post">
+                        {% csrf_token %}{{form}}
+                        <button type="submit" class="btn btn-success">Crear</button>
+                    </form>
+                  </div>
+                </div>         
+            </div>
+    </main>
+  </div>
+  {% endblock %}
+</body>
+</html>
+

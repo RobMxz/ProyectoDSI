@@ -1,0 +1,47 @@
+{% extends 'main/base.html' %}
+<!DOCTYPE html>
+<html lang="es">
+{% block title %} Crear cita {% endblock %}
+{% block content%}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar calificaciones</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}"> 
+</head>
+<body class="body2">
+    <header> 
+      <img src="{% static 'assets/SERA_LOGO_BLANCO.png' %}" alt="imagen-logo"> 
+      <img src="{% static 'assets/SERA_TITULO_BLANCO.png' %}" alt="imagen-logo"> 
+    </header>
+    <div class="display-flex">
+      <nav>
+        <img src="{% static 'assets/ICONO_GENERAL_PERFIL.png' %}" alt="foto-persona">
+        {% for psicopedagogo in psicopedagogos %}
+        <p>Bienvenido <strong>{{psicopedagogo.Psicopedagogo_NOMBRE}}</strong></p>
+            {% empty %}
+        {%endfor%}
+        <a href="/psicopedagogo" class="class-option">Mis datos</a>
+        <a href="/editar-psicopedagogo" class="class-option">Modificar datos</a>
+        <a href="/create-cita" class="class-option">Registrar cita</a>
+        <p class="espaciado">   </p>
+      </nav>
+      <main class="modification-main">
+         <h1 class="color-title">Registro de citas</h1> 
+         
+          <div class="resultado-busqueda ">
+            <div class="background-search ">
+              <div class="guardar-btn-container">
+                <form method="post" class="centrar padding2">
+                  {% csrf_token %}{{form}}
+                    <button type="submit" class="btn btn-success edit-button">Crear</button>
+                </form>
+             </div>
+            </div>
+          </div>
+         
+      </main>
+    </div>
+    {% endblock %}
+  </body>
+  </html>
