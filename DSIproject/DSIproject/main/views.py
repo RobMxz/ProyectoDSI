@@ -96,7 +96,11 @@ def create_notas(request):
         if form.is_valid():
             nota = form.save(commit=False)
             nota.save()
+<<<<<<< HEAD
             return redirect("/docente")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = ReporteNotasForm()
 
@@ -143,8 +147,11 @@ def redirection_view(request):
         return redirect('/psicopedagogo')
     elif user_group and user_group.name == 'Docente':
         return redirect('/docente')
+<<<<<<< HEAD
     elif user_group and user_group.name == 'Administrador':
         return redirect('/administrador')
+=======
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     elif request.user.is_superuser:
         return redirect('/admin')
     else:
@@ -177,7 +184,11 @@ def create_psicopedagogo(request):
             psicopedagogo = form.save(commit=False)
             psicopedagogo.user = request.user
             psicopedagogo.save()
+<<<<<<< HEAD
             return redirect("/psicopedagogo")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = PsicopedagogoForm()
 
@@ -225,7 +236,11 @@ def editar_psicopedagogo(request):
         form = PsicopedagogoForm(request.POST, instance=psicopedagogo)
         if form.is_valid():
             form.save()
+<<<<<<< HEAD
             return redirect("/psicopedagogo")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = PsicopedagogoForm(instance=psicopedagogo)
 
@@ -258,6 +273,7 @@ def create_cita(request):
             tmp_est = str(b.tiempo_estudio)
             failures =str(b.numero_repitencias)
             higher = b.preferencia_profesional 
+<<<<<<< HEAD
 
             condsoc = CondicionSocioeconomica1.objects.get(alumno=cita.alumno)
 
@@ -279,6 +295,11 @@ def create_cita(request):
                             dni, promM, promL, promC, nac,tmp_est,failures,higher,
                             vivienda,fecS,supAc,fedu,profesion])
             return redirect("/psicopedagogo")
+=======
+            subprocess.run(['python', 'correo.py', username,
+                            dni, promM, promL, promC, nac,tmp_est,failures,higher])
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = CitaForm()
 
@@ -335,7 +356,11 @@ def  create_apoderado(request):
             apoderado = form.save(commit=False)
             apoderado.user = request.user
             apoderado.save()
+<<<<<<< HEAD
             return redirect("/administrador")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = ApoderadoForm()
     return render(request, 'main/create_apoderado.html', {'form': form})
@@ -355,7 +380,11 @@ def  create_InformacionExtracurricular(request):
             infor = form.save(commit=False)
             infor.user = request.user
             infor.save()
+<<<<<<< HEAD
             return redirect("/administrador")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = InformacionExtracurricularForm()
     return render(request, 'main/create_InformacionExtracurricular.html', {'form': form})
@@ -375,7 +404,11 @@ def  create_CondicionSocioeconomica(request):
             cond = form.save(commit=False)
             cond.user = request.user
             cond.save()
+<<<<<<< HEAD
             return redirect("/administrador")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = CondicionSocioeconomicaForm()
     return render(request, 'main/create_CondicionSocioeconomica.html', {'form': form})
@@ -395,7 +428,11 @@ def  create_administrador(request):
             adm = form.save(commit=False)
             adm.user = request.user
             adm.save()
+<<<<<<< HEAD
             return redirect("/administrador")
+=======
+            return redirect("/home")
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
     else:
         form = AdministradorForm()
 

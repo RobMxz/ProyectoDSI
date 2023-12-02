@@ -76,6 +76,24 @@ class Cita(models.Model):
     def __str__(self):
         return f"{self.psicopedagogo.nombre} {self.psicopedagogo.apellidos} - {self.fecha}"
 
+<<<<<<< HEAD
+=======
+
+class Apoderado(models.Model):
+    #alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    IDApoderado=models.CharField(max_length=8, unique=True)
+    Nombre_A = models.CharField(max_length=100)
+    Apellido = models.CharField(max_length=100)
+    NivelEducativo =models.CharField(max_length=15, choices=[('Primaria', 'Primaria'),('Secundaria', 'Secundaria'), ('Instituto', 'Instituto'),('Universidad', 'Universidad')])    
+    Profesion = models.CharField(max_length=100)
+    CorreoElectronico =models.EmailField(unique=True)  
+    NumeroTelefono = models.CharField(max_length=9)
+    def __str__(self):
+        return f"{self.Apoderado.Nombre_A}-{self.Apoderado.Apellido} "
+
+
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f
 class InformacionExtracurricular1(models.Model):
     alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
     FechaSubida = models.DateField()
@@ -106,6 +124,7 @@ class Administrador(models.Model):
     def __str__(self):
         return f"{self.nombre} {self.apellidos}"
 
+<<<<<<< HEAD
 class Apoderado(models.Model):
     #alumno = models.ForeignKey(Alumno, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -118,3 +137,5 @@ class Apoderado(models.Model):
     NumeroTelefono = models.CharField(max_length=9)
     def __str__(self):
         return f"{self.Apoderado.Nombre_A}-{self.Apoderado.Apellido} "
+=======
+>>>>>>> 30f5fe3b7f257de9bafe68e0d8cfed66695bb91f

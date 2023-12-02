@@ -21,7 +21,7 @@
         <p class="espaciado">   </p>
     </nav>
     <main>
-        <h1 class="color-title">Registrar observaciones</h1>
+        <h1 class="color-title">Registrar citas</h1>
         <div class="resultado-busqueda">
             <h2 class="start-left">Resultados</h2>
             <div class="background-search">
@@ -32,24 +32,24 @@
                     </div>
                     <div class="observation-generic-data">
                         <img class="big-icon" src="assets/I5_ICONO_FECHA.png " alt="foto-persona">
-                        <h2>Fecha del sistema</h2>
+                        <h2>Fecha del sistema</h2>                                     
                     </div>
+                    <div class="fecha-container">
+                      <input type="text" id="fecha-input" class="input-calificacion input-fecha" required>
+                    </div>  
                 </div>
-                
-                <h2 class="start-left margin-left">Tipo de observación</h2>
-                <form class="margin-left">
-                  <select class="edit-select">
-                    <option>Academica</option>
-                    <option>Conductual</option>
-                    <option>Emocional</option>
-                    <option>Social</option>
-                  </select>
-                </form>   
-                <h2 class="start-left margin-left">Descripción</h2>
-                <input type="text" id="descripcion-input" required>
-                <button class="edit-button centrar-button">Guardar</button>
+                <h2 class="start-left margin-left">Justificacion</h2>
+                <input type="text" id="descripcion-input" required>     
             </div>
         </div>
+        <div class="background-search2">
+          <h3 class="start-left margin-left explanation">Envio de reporte de rendimiento del estudiante,con el posible problema identificado y recomendaciones</h3>
+          <button class="edit-button centrar-button report-button">Enviar reporte</button>
+        </div>
+        <div class="container-btn">
+          <div class="guardar-btn-container"><button class="guardar-btn"><b>Volver</b></button></div>
+          <div class="guardar-btn-container"><button class="guardar-btn"><b>Guardar</b></button></div>
+        </div>     
     </main>
   </div>
 </body>

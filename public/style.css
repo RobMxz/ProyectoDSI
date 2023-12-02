@@ -17,7 +17,9 @@
     --rosa-bebe: #F9E5EA;
     --panache: #FBEDD9;
     --cian-palido: #CFF6FF;
-
+    --rojo: #ED1D2B;
+    --gris-oscuro: #737373;
+    
     --fuentePrincipal: 'Lexend-Deca',sans-serif;
 }
 
@@ -366,6 +368,9 @@ tbody tr {
 .color-title{
   color: var(--negro);
 }
+.color-title-white{
+  color: var(--blanco) !important;
+}
 
 /*Reporte alumno-----------------------------------------------*/
 
@@ -463,6 +468,10 @@ span {
   display: flex;
   width: 100%;
 }
+#informacion-profesor-curso{
+  gap: 20%;
+  margin: 3%;
+}
 
 #informacion-profesor-curso h1 {
   display: flex;
@@ -477,7 +486,8 @@ span {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .datos-muestra {
@@ -588,7 +598,7 @@ span {
 form select{
   background-color: var(--gris);
   font-size: 20px;
-  padding: 0 10%;
+  padding: 0 5%;
 }
 .square-docente{
   width: 100px;
@@ -703,6 +713,7 @@ form select{
 
 /*Registrar observaciones rellenar*/
 
+
 .background-search{
   display: flex;
   flex-direction: column;
@@ -713,6 +724,18 @@ form select{
   padding: 4% 0;
   
 }
+
+.background-search2{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  text-align: center;
+  background-color: var(--gris);
+  border-radius: 3%;
+  margin-top: 5%;
+  justify-content: space-between;
+}
+
 .resultado-b{
   display: grid;
   grid-template-columns: repeat(2,1fr);
@@ -790,6 +813,18 @@ form select{
   border: none;
   width: 70%;
   margin-left: 5%;
+  height: 400% !important;
+}
+
+.explanation{
+  font-size: 150%;
+  color: var(--gris-oscuro);
+  width: 40%;
+}
+
+.report-button{
+  width: auto;
+  margin-bottom: 5%;
 }
 
 
@@ -880,49 +915,83 @@ form select{
 }
 
 /* Ventana emergente*/
-.notificacion { 
-  width: 300px; 
-  height: 150px; 
-  background-color: white; 
-  border-radius: 10px; 
-  box-shadow: 0 0 10px rgba(0,0,0,0.2); 
-  position: fixed; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  display: none; }
-
-.notificacion-titulo { 
-  font-size: 20px; 
-  font-weight: bold; 
-  color: black; 
-  text-align: center; 
-  margin-top: 20px; 
+#fallido,#exitoso{
+  border: none;
+  width: 20%;
+  border-radius: 10%;
 }
 
-.notificacion-mensaje { 
-  font-size: 16px; 
-  color: red; 
-  text-align: center; 
-  margin-top: 10px; 
+.img-dialog{
+  max-width: 50%;
+  max-height: 50%;
 }
 
-.notificacion-boton { 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  margin-top: 20px; 
+.dialog-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.notificacion-boton button { 
-  width: 100px; 
-  height: 40px; 
-  background-color: red; 
-  border: none; 
-  border-radius: 5px; 
-  color: white; 
-  cursor: pointer; }
+.btn-dialog-fail{
+  background-color: var(--rojo);
+  border: none;
+  border-radius: 10%;
+  color: var(--blanco);
+  height: 2.5rem;
+  width: 4rem;
+  margin: 5%;
+}
+.h2-dialog{
+  font-size: 200%;
+  color: var(--negro); 
+  margin: 4%;
+}
+
+.h1-dialog{
+  font-size: 100%;
+  color: var(--gris-oscuro);
+}
+
+.btn-dialog-success{
+  background-color: var(--verde-oscuro);
+  border: none;
+  border-radius: 10%;
+  color: var(--blanco);
+  height: 2.5rem;
+  width: 4rem;
+  margin: 5%;
+}
 
 
+.auto-width{
+  width: auto;
+}
+.modification-main{
+  width: 50%;
+}
 
+.input-calificacion{
+  margin-left: 5% !important;
+  width: 87% !important;
+  border: none !important;
+}
 
+.fecha-container{
+  display: flex;
+  width: 80%;
+  justify-content: flex-end;
+  margin-left: 200%;
+}
+
+.centrar-form{
+  display: flex;
+  justify-content: center;
+}
+.margin-bottom{
+  margin-bottom: 5%;
+}
+
+.boton-centrado{
+  margin-left: 110%;
+}
